@@ -1,0 +1,11 @@
+.solve{
+    color: #000;
+    background-color: #fff;
+    border-radius: 10px;
+    font-weight: 300;
+    margin-bottom: 15px;
+}
+
+.solve:hover{
+    background-color: green;
+}
