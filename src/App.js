@@ -1,9 +1,10 @@
 import './App.css';
+import Header from './Components/Header-component/Header.component';
 
 function App() {
   return (
-    <div className="App">
-    <h1>I'm here</h1>
+    <div className="App container-fluid center">
+    <Header />
     </div>
   );
 }
