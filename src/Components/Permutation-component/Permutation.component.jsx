@@ -11,9 +11,10 @@ import './Permutation.css';
 }*/
 
 class Permutation extends Component{
+
     render(){
     
-
+      const {displayPermutation, hidePermutation, permutate, showCard, ans} = this.props
         return(
             <div className='row'>
 
@@ -23,12 +24,12 @@ class Permutation extends Component{
                  <br />
                  <p className='text-info'>A permutation is an arrangement in a definite order of several objects taken, some or all at a time, with permutations, every tiny detail matters. It means the order in which elements are arranged is significant.</p>
                  <br />
-                 <button className='solve' onClick={this.props.displayPermutation}>Solve question</button>
-                 <button className='solve mx-1' onClick={this.props.hidePermutation}>Hide</button>
+                 <button className='solve' onClick={displayPermutation}>Solve question</button>
+                 <button className='solve mx-1' onClick={hidePermutation}>Hide</button>
 
                 </div>
 
-                <div className='jumbotron offset-sm-1 offset-md-2 d-none" id="permSol'>
+                {showCard && <div className='jumbotron offset-sm-1 offset-md-2 d-none" id="permSol'>
 
                  <div className='row'>
                   <div className='col-8'>
@@ -40,16 +41,17 @@ class Permutation extends Component{
                    <label htmlFor="r">and r =</label>
                    <input type="text" id="r" placeholder="input r" /> 
 
-                   <button type="button" className="mt-2 solve" onClick={this.props.permutate}>Permute</button>
+                   <button type="button" className="mt-2 solve" onClick={permutate}>Permute</button>
                   </div>
 
                   <div className='col-4'>
-                  <p>The ans is: <b id="ans" className="text-success">{this.props.ans}</b></p>
+                  <p>The ans is: <b id="ans" className="text-success">{ans}</b></p>
                   </div>
 
                  </div>
+        
                 
-                </div>
+                </div>}
 
 
             </div> // row div

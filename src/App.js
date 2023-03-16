@@ -8,7 +8,8 @@ class App extends Component{
   constructor(){
     super()
     this.state = {
-      ans: ''
+      ans: '',
+      showCard: false
     }
   }
 
@@ -35,25 +36,19 @@ class App extends Component{
 
   render(){
     const {permutation} = this;
+    const {ans, showCard} = this.state
 
-
-    function displayPermutation(){
-      let element = document.getElementById('permSol');
-      element.classList.remove('d-none');
-    }
-  
-    function hidePermutation(){
-      let element = document.getElementById('permSol');
-      element.classList.add('d-none');
-    }
-  
-   
-  
-  
     return (
       <div className="App container-fluid center">
       <Header />
-      <Permutation displayPermutation={displayPermutation} hidePermutation={hidePermutation} permutate={permutation} ans={this.state.ans}/>
+
+      <Permutation 
+      displayPermutation={() => this.setState(() => ({...this.state, showCard: true}))} 
+      hidePermutation={() => this.setState(() => ({...this.state, showCard: false}))} 
+      permutate={permutation}
+      showCard={showCard}
+      ans={ans}
+      />
       </div>
     );
   }
