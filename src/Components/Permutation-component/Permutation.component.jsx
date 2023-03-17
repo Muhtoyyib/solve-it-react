@@ -14,7 +14,7 @@ class Permutation extends Component{
 
     render(){
     
-      const {displayPermutation, hidePermutation, permutate, showCard, ans} = this.props
+      const {displayPermutation, hidePermutation, permutate, showCard, ans, nInputValue, handleNinputValue, rInputValue, handleRinputValue} = this.props
         return(
             <div className='row'>
 
@@ -37,9 +37,13 @@ class Permutation extends Component{
                    <br />
 
                    <label htmlFor="n">If n =</label>
-                   <input type="text" id="n" placeholder="input n" /><br />
+                   <input type="text" id="n" placeholder="input n" value={nInputValue} 
+                   onChange={(e) => handleNinputValue(e)}
+                   />
+                   <br />
                    <label htmlFor="r">and r =</label>
-                   <input type="text" id="r" placeholder="input r" /> 
+                   <input type="text" id="r" placeholder="input r" value={rInputValue} 
+                   onChange={(e) => handleRinputValue(e)}/> 
 
                    <button type="button" className="mt-2 solve" onClick={permutate}>Permute</button>
                   </div>

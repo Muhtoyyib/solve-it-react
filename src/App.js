@@ -9,34 +9,31 @@ class App extends Component{
     super()
     this.state = {
       ans: '',
-      showCard: false
+      showCard: false,
+      nInputValue: '',
+      rInputValue: ''
     }
   }
 
-  permutation =(n,r)=>{
-  
-    n = document.getElementById('n').value;
-    r = document.getElementById('r').value;
-   
+  permutation = () => {
+    const {nInputValue: n, rInputValue} = this.state
+
     function factorial(num){
       let product = 1;
-    for(let i=2; i <= num; i++){
-      product *= i;
-    }
+
+      for(let i=2; i <= num; i++){
+        product *= i;
+      }
      return product;
     }
-   const ans = factorial(n)/factorial(n-r);
 
-   console.log(ans);
-
-   this.setState(() => {
-    return {ans}
-  })
+    this.setState(() => ({ans: factorial(n) / factorial(n - rInputValue)}))
    }
 
   render(){
     const {permutation} = this;
-    const {ans, showCard} = this.state
+    const {ans, showCard, nInputValue, rInputValue} = this.state
+
 
     return (
       <div className="App container-fluid center">
@@ -48,6 +45,10 @@ class App extends Component{
       permutate={permutation}
       showCard={showCard}
       ans={ans}
+      nInputValue={nInputValue}
+      handleNinputValue={(e) => this.setState(() => ({...this.state, nInputValue: e.target.value}))}
+      rInputValue={rInputValue}
+      handleRinputValue={(e) => this.setState(() => ({...this.state, rInputValue: e.target.value}))}
       />
       </div>
     );
