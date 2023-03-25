@@ -39,6 +39,7 @@ class App extends Component{
       this.setState(()=>({pErrorMsg: `Please Input values!`}))
     } else{
       this.setState(() => ({ans: factorial(n) / factorial(n - rInputValue)}))
+      this.setState(()=>({pErrorMsg: ``}))
     }
     
    }
@@ -62,6 +63,7 @@ class App extends Component{
     this.setState(()=>({cErrorMsg: `Please Input Values!`}))
    }else{
     this.setState(() => ({ansCombination: finaN / finalR }))
+    this.setState(()=>({cErrorMsg: ``}))
    }
 
    }
