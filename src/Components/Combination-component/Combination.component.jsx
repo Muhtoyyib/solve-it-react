@@ -14,15 +14,15 @@ class Combination extends Component{
 
     render(){
     
-      const {displayCombination, hideCombination, combine, showCombinationCard, nInputCombination,  handleNinputCValue, rInputValueCombination, handleRinputCValue, ansCombination} = this.props
+      const {displayCombination, hideCombination, combine, showCombinationCard, nInputCombination,  handleNinputCValue, rInputValueCombination, handleRinputCValue, ansCombination, cErrorMsg} = this.props
         return(
             <div className='row'>
 
                 <div className='col-8 offset-2'>
 
-                 <h2>Combination</h2> 
+                 <h2 className='text-dark'><strong>Combination</strong></h2> 
                  <br />
-                 <p className='text-info'>The combination is a way of selecting elements from a set so that the order of selection doesn’t matter. With the combination, only choosing elements matters. It means the order in which elements are chosen is not essential.</p>
+                 <p className='text-white'>The combination is a way of selecting elements from a set so that the order of selection doesn’t matter. With the combination, only choosing elements matters. It means the order in which elements are chosen is not essential.</p>
                  <br />
                  <button className='solve' onClick={displayCombination}>Solve question</button>
                  <button className='solve mx-1' onClick={hideCombination}>Hide</button>
@@ -46,6 +46,7 @@ class Combination extends Component{
                    onChange={(e) => handleRinputCValue(e)}/> 
 
                    <button type="button" className="mt-2 ml-2 solve" onClick={combine}>Combine</button>
+                   <p className='text-danger'>{cErrorMsg}</p>
                   </div>
 
                   <div className='col-4'>

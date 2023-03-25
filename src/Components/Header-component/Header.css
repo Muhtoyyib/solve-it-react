@@ -5,3 +5,9 @@ hr{
     border: none;
     opacity: 0.9;
 }
+
+h1{
+    font-family: 'Bigelow Rules', cursive;
+    font-size: 3.5em;
+    color: aqua;
+}

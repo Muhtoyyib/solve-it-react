@@ -16,7 +16,9 @@ class App extends Component{
       rInputValue: '',
       nInputCombination: '',
       rInputValueCombination: '',
-      ansCombination: ''
+      ansCombination: '',
+      pErrorMsg: '',
+      cErrorMsg: ''
       
     }
   }
@@ -33,7 +35,12 @@ class App extends Component{
      return product;
     }
 
-    this.setState(() => ({ans: factorial(n) / factorial(n - rInputValue)}))
+    if(!n.trim() || !rInputValue.trim()){
+      this.setState(()=>({pErrorMsg: `Please Input values!`}))
+    } else{
+      this.setState(() => ({ans: factorial(n) / factorial(n - rInputValue)}))
+    }
+    
    }
 
    combination = () => {
@@ -51,20 +58,22 @@ class App extends Component{
     const finaN = factorial(nC);
     const finalR = factorial(nC - rInputValueCombination) *factorial(rInputValueCombination);
 
-    console.log(finaN);
-    console.log(finalR);
-
+   if(!nC.trim || !rInputValueCombination.trim()){
+    this.setState(()=>({cErrorMsg: `Please Input Values!`}))
+   }else{
     this.setState(() => ({ansCombination: finaN / finalR }))
+   }
+
    }
 
 
   render(){
     const {permutation, combination} = this;
-    const {ans, showCard, showCombinationCard, nInputValue, rInputValue, nInputCombination, rInputValueCombination, ansCombination} = this.state
+    const {ans, showCard, showCombinationCard, nInputValue, rInputValue, nInputCombination, rInputValueCombination, ansCombination, pErrorMsg, cErrorMsg} = this.state
 
 
     return (
-      <div className="App container-fluid center">
+      <div className="App container-fluid center bg-image">
       <Header />
 
       <Permutation 
@@ -77,6 +86,7 @@ class App extends Component{
       handleNinputValue={(e) => this.setState(() => ({...this.state, nInputValue: e.target.value}))}
       rInputValue={rInputValue}
       handleRinputValue={(e) => this.setState(() => ({...this.state, rInputValue: e.target.value}))}
+      pErrorMsg={pErrorMsg}
       />
 
       <Combination 
@@ -89,6 +99,7 @@ class App extends Component{
       rInputValueCombination={rInputValueCombination}
       handleRinputCValue={(e) => this.setState(() => ({...this.state, rInputValueCombination: e.target.value}))}
       ansCombination={ansCombination}
+      cErrorMsg={cErrorMsg}
       />
       </div>
 

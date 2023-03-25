@@ -14,15 +14,15 @@ class Permutation extends Component{
 
     render(){
     
-      const {displayPermutation, hidePermutation, permutate, showCard, ans, nInputValue, handleNinputValue, rInputValue, handleRinputValue} = this.props
+      const {displayPermutation, hidePermutation, permutate, showCard, ans, nInputValue, handleNinputValue, rInputValue, handleRinputValue, pErrorMsg} = this.props
         return(
             <div className='row'>
 
                 <div className='col-8 offset-2'>
 
-                 <h2>Permutation</h2> 
+                 <h2 className='text-dark'><strong>Permutation</strong></h2> 
                  <br />
-                 <p className='text-info'>A permutation is an arrangement in a definite order of several objects taken, some or all at a time, with permutations, every tiny detail matters. It means the order in which elements are arranged is significant.</p>
+                 <p className='text-white'>A permutation is an arrangement in a definite order of several objects taken, some or all at a time, with permutations, every tiny detail matters. It means the order in which elements are arranged is significant.</p>
                  <br />
                  <button className='solve' onClick={displayPermutation}>Solve question</button>
                  <button className='solve mx-1' onClick={hidePermutation}>Hide</button>
@@ -46,6 +46,7 @@ class Permutation extends Component{
                    onChange={(e) => handleRinputValue(e)}/> 
 
                    <button type="button" className="mt-2 ml-2 solve" onClick={permutate}>Permute</button>
+                   <p className='text-danger'>{pErrorMsg}</p>
                   </div>
 
                   <div className='col-4'>

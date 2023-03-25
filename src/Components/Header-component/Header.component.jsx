@@ -24,7 +24,7 @@ class Header extends Component{
 
            <div className='row'>
              <div className='col'>
-             <h1 className="text-center text-white">Do you know what is <strong>Permutation </strong> and <strong>Combination</strong>?</h1>
+             <h1 className="text-center"><strong>Do you know what is Permutation and Combination?</strong></h1>
              <hr className='mt-4'/>
              </div>
            </div>
