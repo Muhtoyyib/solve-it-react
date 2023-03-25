@@ -1,6 +1,7 @@
 import './App.css';
 import Header from './Components/Header-component/Header.component';
 import Permutation from './Components/Permutation-component/Permutation.component';
+import Combination from './Components/Combination-component/Combination.component';
 import { Component } from 'react';
 
 class App extends Component{
@@ -10,8 +11,13 @@ class App extends Component{
     this.state = {
       ans: '',
       showCard: false,
+      showCombinationCard: false,
       nInputValue: '',
-      rInputValue: ''
+      rInputValue: '',
+      nInputCombination: '',
+      rInputValueCombination: '',
+      ansCombination: ''
+      
     }
   }
 
@@ -30,9 +36,31 @@ class App extends Component{
     this.setState(() => ({ans: factorial(n) / factorial(n - rInputValue)}))
    }
 
+   combination = () => {
+    const {nInputCombination: nC, rInputValueCombination} = this.state
+
+    function factorial(num){
+      let product = 1;
+
+      for(let i=2; i <= num; i++){
+        product *= i;
+      }
+     return product;
+    }
+
+    const finaN = factorial(nC);
+    const finalR = factorial(nC - rInputValueCombination) *factorial(rInputValueCombination);
+
+    console.log(finaN);
+    console.log(finalR);
+
+    this.setState(() => ({ansCombination: finaN / finalR }))
+   }
+
+
   render(){
-    const {permutation} = this;
-    const {ans, showCard, nInputValue, rInputValue} = this.state
+    const {permutation, combination} = this;
+    const {ans, showCard, showCombinationCard, nInputValue, rInputValue, nInputCombination, rInputValueCombination, ansCombination} = this.state
 
 
     return (
@@ -50,7 +78,21 @@ class App extends Component{
       rInputValue={rInputValue}
       handleRinputValue={(e) => this.setState(() => ({...this.state, rInputValue: e.target.value}))}
       />
+
+      <Combination 
+      displayCombination={() => this.setState(() => ({...this.state, showCombinationCard: true}))} 
+      hideCombination={() => this.setState(() => ({...this.state, showCombinationCard: false}))} 
+      combine={combination}
+      showCombinationCard={showCombinationCard}
+      nInputCombination={nInputCombination}
+      handleNinputCValue={(e) => this.setState(() => ({...this.state, nInputCombination: e.target.value}))}
+      rInputValueCombination={rInputValueCombination}
+      handleRinputCValue={(e) => this.setState(() => ({...this.state, rInputValueCombination: e.target.value}))}
+      ansCombination={ansCombination}
+      />
       </div>
+
+      
     );
   }
 

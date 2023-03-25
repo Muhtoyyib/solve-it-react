@@ -20,7 +20,7 @@ class Permutation extends Component{
 
                 <div className='col-8 offset-2'>
 
-                 <h2 className='text-white'>Permutation</h2> 
+                 <h2>Permutation</h2> 
                  <br />
                  <p className='text-info'>A permutation is an arrangement in a definite order of several objects taken, some or all at a time, with permutations, every tiny detail matters. It means the order in which elements are arranged is significant.</p>
                  <br />
@@ -33,7 +33,7 @@ class Permutation extends Component{
 
                  <div className='row'>
                   <div className='col-8'>
-                   <h2>Permutation</h2>
+                   <h2 className='text-dark'>Permutation</h2>
                    <br />
 
                    <label htmlFor="n">If n =</label>
