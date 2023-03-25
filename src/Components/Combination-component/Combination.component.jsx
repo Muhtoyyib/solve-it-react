@@ -45,7 +45,7 @@ class Combination extends Component{
                    <input type="text" id="r" placeholder="input r" value={rInputValueCombination} 
                    onChange={(e) => handleRinputCValue(e)}/> 
 
-                   <button type="button" className="mt-2 solve" onClick={combine}>Combine</button>
+                   <button type="button" className="mt-2 ml-2 solve" onClick={combine}>Combine</button>
                   </div>
 
                   <div className='col-4'>

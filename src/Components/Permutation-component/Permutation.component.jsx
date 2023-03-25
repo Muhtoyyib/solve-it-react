@@ -45,7 +45,7 @@ class Permutation extends Component{
                    <input type="text" id="r" placeholder="input r" value={rInputValue} 
                    onChange={(e) => handleRinputValue(e)}/> 
 
-                   <button type="button" className="mt-2 solve" onClick={permutate}>Permute</button>
+                   <button type="button" className="mt-2 ml-2 solve" onClick={permutate}>Permute</button>
                   </div>
 
                   <div className='col-4'>
